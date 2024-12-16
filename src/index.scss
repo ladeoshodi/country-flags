@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+// variables
+$primary-font-family: "Nunito Sans", sans-serif;
+$primary-font-weight: 600;
+$bold-font-weight: 800;
+$light-font-weight: 300;
+$homepage-font-size: 14px;
+$detailpage-font-size: 16px;
+
+
+// light theme
+$light-mode-text: hsl(200, 15%, 8%);
+$light-mode-input: hsl(0, 0%, 52%);
+$light-mode-background: hsl(0, 0%, 98%);
+
+// dark theme
+$dark-mode-text: hsl(0, 0%, 100%);
+$dark-mode-input: hsl(209, 23%, 22%);
+$dark-mode-background: hsl(207, 26%, 17%);
+
+body {
+  font-family: $primary-font-family;
+  font-optical-sizing: auto;
+  font-weight: $primary-font-weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
