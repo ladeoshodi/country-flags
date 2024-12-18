@@ -18,11 +18,3 @@ $light-mode-background: hsl(0, 0%, 98%);
 $dark-mode-text: hsl(0, 0%, 100%);
 $dark-mode-input: hsl(209, 23%, 22%);
 $dark-mode-background: hsl(207, 26%, 17%);
-
-body {
-  font-family: $primary-font-family;
-  font-optical-sizing: auto;
-  font-weight: $primary-font-weight;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}

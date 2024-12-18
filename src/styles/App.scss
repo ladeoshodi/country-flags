@@ -1,0 +1,32 @@
+@use "base" as *;
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar-light {
+    color: $light-mode-text;
+}
+
+.navbar-dark {
+    color: $dark-mode-text;
+    background-color: $dark-mode-input;
+}
+
+.dark-mode-btn {
+    cursor: pointer;
+    border: 0;
+}
+
+.dark-mode-btn-light {
+    background-color: white;
+    color: $light-mode-text;
+}
+
+.dark-mode-btn-dark {
+    background-color: $dark-mode-input;
+    color: $dark-mode-text;
+}
