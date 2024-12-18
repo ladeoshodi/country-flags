@@ -23,9 +23,10 @@ function Home() {
   return (
     <main className={`home ${isDarkMode ? "home-dark" : "home-light"}`}>
       <section className="home-nav">
-        <div className="search">
-          <PiMagnifyingGlass />
+        <div className={"search"}>
+          <PiMagnifyingGlass className="search-icon" />
           <input
+            className={isDarkMode ? "search-dark" : "search-light"}
             type="search"
             placeholder="Search for a country..."
             value={searchQuery}

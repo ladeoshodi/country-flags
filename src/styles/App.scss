@@ -93,9 +93,46 @@
     font-weight: $bold-font-weight;
 }
 
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+
+    input[type="search"] {        
+        width: 100%;
+        padding: 10px 30px;
+        border: 0;
+        border-radius: 5px;
+        font-size: $homepage-font-size;
+    }
+    .search-icon {
+        position: absolute;
+        left: 10px;
+        color: #ccc;
+    }
+}
+
+.search-light {
+    background-color: white;
+    color: $light-mode-text;
+}
+
+.search-dark {
+    background-color: $dark-mode-input;
+    color: $dark-mode-text;
+    &::placeholder {
+        color: $dark-mode-text;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .home-nav {
         flex-direction: column;
+        gap: 20px;
+    }
+    .search {
+        width: 100%;
     }
     
 }
