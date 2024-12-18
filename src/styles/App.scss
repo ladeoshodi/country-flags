@@ -32,7 +32,18 @@
 }
 
 .home {
-    padding: $page-padding-default
+    min-height: 100vh;
+    padding: $page-padding-default;
+}
+
+.home-light {
+    background-color: $light-mode-background;
+    color: $light-mode-text;
+}
+
+.home-dark {
+    background-color: $dark-mode-background;
+    color: $dark-mode-text;
 }
 
 .home-nav {
@@ -40,6 +51,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.countries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.country-card {
+    width: 200px;
+    img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    .country-details {
+        padding: 10px 20px;
+        p {
+            font-size: $homepage-font-size;
+        }
+    }
+}
+
+.country-card-light {
+    background-color: white;
+    color: $light-mode-text;
+}
+
+.country-card-dark {
+    background-color: $dark-mode-input;
+    color: $dark-mode-text;
+}
+
+.light-font-text {
+    font-weight: $light-font-weight;
+}
+
+.bold-font-text {
+    font-weight: $bold-font-weight;
 }
 
 @media screen and (max-width: 500px) {

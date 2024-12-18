@@ -1,13 +1,16 @@
 import { PiMagnifyingGlass } from "react-icons/pi";
 
 import { useAppSelector } from "../app/hooks";
-import { selectRegions } from "../slices/countrySlice";
+import { selectCountries, selectRegions } from "../slices/countrySlice";
+import { selectIsDarkMode } from "../slices/themeSlice";
 
 function Home() {
+  const isDarkMode = useAppSelector(selectIsDarkMode);
   const regions = useAppSelector(selectRegions);
+  const countries = useAppSelector(selectCountries);
 
   return (
-    <main className="home">
+    <main className={`home ${isDarkMode ? "home-dark" : "home-light"}`}>
       <section className="home-nav">
         <div className="search">
           <PiMagnifyingGlass />
@@ -25,8 +28,33 @@ function Home() {
         </div>
       </section>
       <section className="countries">
-        <h1>Countries</h1>
-        <p>Welcome to the Home page!</p>
+        {countries.map((country) => {
+          return (
+            <article
+              key={country.alpha3Code}
+              className={`country-card ${
+                isDarkMode ? "country-card-dark" : "country-card-light"
+              }`}
+            >
+              <img src={country.flag} alt={country.name} />
+              <div className="country-details">
+                <h3>{country.name}</h3>
+                <p>
+                  <strong>Population:</strong>{" "}
+                  <span className="light-font-text">{country.population}</span>
+                </p>
+                <p>
+                  <strong>Region:</strong>{" "}
+                  <span className="light-font-text">{country.region}</span>
+                </p>
+                <p>
+                  <strong>Capital:</strong>{" "}
+                  <span className="light-font-text">{country.capital}</span>
+                </p>
+              </div>
+            </article>
+          );
+        })}
       </section>
     </main>
   );
