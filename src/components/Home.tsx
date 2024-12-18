@@ -3,6 +3,7 @@ import { PiMagnifyingGlass } from "react-icons/pi";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import {
   filterByRegion,
+  search,
   selectCountries,
   selectRegions,
 } from "../slices/countrySlice";
@@ -17,13 +18,22 @@ function Home() {
   const dispatch = useAppDispatch();
 
   const [currentRegion, setCurrentRegion] = useState(regions[0]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <main className={`home ${isDarkMode ? "home-dark" : "home-light"}`}>
       <section className="home-nav">
         <div className="search">
           <PiMagnifyingGlass />
-          <input type="search" placeholder="Search for a country..." />
+          <input
+            type="search"
+            placeholder="Search for a country..."
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              dispatch(search(e.target.value));
+            }}
+          />
         </div>
         <div className="filter">
           <select
