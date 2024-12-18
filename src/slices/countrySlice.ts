@@ -2,7 +2,11 @@ import countries from "../../data.json";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
 
-const regions = Array.from(new Set(countries.map((country) => country.region)));
+const regions = Array.from(
+  new Set(countries.map((country) => country.region))
+).sort((a, b) => {
+  return a.localeCompare(b);
+});
 
 const initialState = {
   countries: countries,
