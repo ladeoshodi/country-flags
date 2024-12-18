@@ -8,6 +8,9 @@ const regions = Array.from(
   return a.localeCompare(b);
 });
 
+const filterPlaceholderText = "Filter by Region";
+regions.unshift(filterPlaceholderText);
+
 const initialState = {
   countries: countries,
   regions: regions,
@@ -22,11 +25,20 @@ export const countrySlice = createSlice({
         country.name.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
+    filterByRegion: (state, action: PayloadAction<string>) => {
+      if (action.payload === filterPlaceholderText) {
+        state.countries = countries;
+      } else {
+        state.countries = countries.filter(
+          (country) => country.region === action.payload
+        );
+      }
+    },
   },
 });
 
 // actions
-export const { search } = countrySlice.actions;
+export const { search, filterByRegion } = countrySlice.actions;
 
 // reducer for store configuration
 export default countrySlice.reducer;

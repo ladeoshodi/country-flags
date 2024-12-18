@@ -1,13 +1,22 @@
 import { PiMagnifyingGlass } from "react-icons/pi";
 
-import { useAppSelector } from "../app/hooks";
-import { selectCountries, selectRegions } from "../slices/countrySlice";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import {
+  filterByRegion,
+  selectCountries,
+  selectRegions,
+} from "../slices/countrySlice";
 import { selectIsDarkMode } from "../slices/themeSlice";
+import { useState } from "react";
 
 function Home() {
   const isDarkMode = useAppSelector(selectIsDarkMode);
   const regions = useAppSelector(selectRegions);
   const countries = useAppSelector(selectCountries);
+
+  const dispatch = useAppDispatch();
+
+  const [currentRegion, setCurrentRegion] = useState(regions[0]);
 
   return (
     <main className={`home ${isDarkMode ? "home-dark" : "home-light"}`}>
@@ -17,8 +26,13 @@ function Home() {
           <input type="search" placeholder="Search for a country..." />
         </div>
         <div className="filter">
-          <select>
-            <option value="Filter by Region">Filter by Region</option>
+          <select
+            value={currentRegion}
+            onChange={(e) => {
+              setCurrentRegion(e.target.value);
+              dispatch(filterByRegion(e.target.value));
+            }}
+          >
             {regions.map((region) => (
               <option key={region} value={region}>
                 {region}
