@@ -58,3 +58,5 @@ export default countrySlice.reducer;
 // selectors
 export const selectCountries = (state: RootState) => state.countries.countries;
 export const selectRegions = (state: RootState) => state.countries.regions;
+export const selectCountry = (state: RootState, countryName: string) =>
+  state.countries.countries.find((country) => country.name === countryName);

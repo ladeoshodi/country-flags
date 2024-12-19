@@ -9,6 +9,7 @@ import {
 } from "../slices/countrySlice";
 import { selectIsDarkMode } from "../slices/themeSlice";
 import { useState } from "react";
+import { Link } from "react-router";
 
 function Home() {
   const isDarkMode = useAppSelector(selectIsDarkMode);
@@ -59,29 +60,32 @@ function Home() {
       <section className="countries">
         {countries.map((country) => {
           return (
-            <article
-              key={country.alpha3Code}
-              className={`country-card ${
-                isDarkMode ? "country-card-dark" : "country-card-light"
-              }`}
-            >
-              <img src={country.flag} alt={country.name} />
-              <div className="country-details">
-                <h3>{country.name}</h3>
-                <p>
-                  <strong>Population:</strong>{" "}
-                  <span className="light-font-text">{country.population}</span>
-                </p>
-                <p>
-                  <strong>Region:</strong>{" "}
-                  <span className="light-font-text">{country.region}</span>
-                </p>
-                <p>
-                  <strong>Capital:</strong>{" "}
-                  <span className="light-font-text">{country.capital}</span>
-                </p>
-              </div>
-            </article>
+            <Link to={`/${country.name}`} key={country.alpha3Code}>
+              <article
+                className={`country-card ${
+                  isDarkMode ? "country-card-dark" : "country-card-light"
+                }`}
+              >
+                <img src={country.flag} alt={country.name} />
+                <div className="country-details">
+                  <h3>{country.name}</h3>
+                  <p>
+                    <strong>Population:</strong>{" "}
+                    <span className="light-font-text">
+                      {country.population}
+                    </span>
+                  </p>
+                  <p>
+                    <strong>Region:</strong>{" "}
+                    <span className="light-font-text">{country.region}</span>
+                  </p>
+                  <p>
+                    <strong>Capital:</strong>{" "}
+                    <span className="light-font-text">{country.capital}</span>
+                  </p>
+                </div>
+              </article>
+            </Link>
           );
         })}
       </section>
