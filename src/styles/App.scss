@@ -116,6 +116,10 @@
 .search-light {
     background-color: white;
     color: $light-mode-text;
+    &:focus {
+        outline: none;
+        border-color: $light-mode-background;
+    }
 }
 
 .search-dark {
@@ -123,6 +127,43 @@
     color: $dark-mode-text;
     &::placeholder {
         color: $dark-mode-text;
+    }
+    &:focus {
+        outline: none;
+        border-color: $dark-mode-background;
+    }
+}
+
+.filter {
+    select {
+        padding: 10px 20px;
+        border: 0;
+        border-radius: 5px;
+        font-size: $homepage-font-size;
+    }
+
+}
+
+.filter-light {
+    select {
+        background-color: white;
+        color: $light-mode-text;
+
+        &:focus {
+            outline: none;
+            border-color: $light-mode-background;
+        }
+    } 
+}
+
+.filter-dark {
+    select {
+        background-color: $dark-mode-input;
+        color: $dark-mode-text;
+        &:focus {
+            outline: none;
+            border-color: $dark-mode-background;
+        }
     }
 }
 

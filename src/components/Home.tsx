@@ -32,11 +32,15 @@ function Home() {
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
-              dispatch(search(e.target.value));
+              dispatch(
+                search({ query: e.target.value, region: currentRegion })
+              );
             }}
           />
         </div>
-        <div className="filter">
+        <div
+          className={`filter ${isDarkMode ? "filter-dark" : "filter-light"}`}
+        >
           <select
             value={currentRegion}
             onChange={(e) => {
