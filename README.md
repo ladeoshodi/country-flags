@@ -43,7 +43,6 @@ Users should be able to:
 - CSS flexbox
 - React
 - TypeScript
-- TailwindCSS
 - Vite
 - Redux
 - React router
