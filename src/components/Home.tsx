@@ -67,7 +67,7 @@ function Home() {
                 }`}
               >
                 <img src={country.flag} alt={country.name} />
-                <div className="country-details">
+                <div className="country-details-home">
                   <h3>{country.name}</h3>
                   <p>
                     <strong>Population:</strong>{" "}
