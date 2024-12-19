@@ -60,7 +60,7 @@ function Home() {
       <section className="countries">
         {countries.map((country) => {
           return (
-            <Link to={`/${country.name}`} key={country.alpha3Code}>
+            <Link to={`/${country.alpha3Code}`} key={country.alpha3Code}>
               <article
                 className={`country-card ${
                   isDarkMode ? "country-card-dark" : "country-card-light"
