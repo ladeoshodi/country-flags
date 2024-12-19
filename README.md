@@ -41,6 +41,7 @@ Users should be able to:
 - Semantic HTML
 - CSS grid
 - CSS flexbox
+- Sass/SCSS
 - React
 - TypeScript
 - Vite
