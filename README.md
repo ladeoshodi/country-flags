@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [REST countries API - GitHub](https://github.com/ladeoshodi/country-flags)
-- Live Site URL: [REST countries API](https://your-live-site-url.com)
+- Live Site URL: [REST countries API](https://country-flag-with-theme-switch.netlify.app/)
 
 ## My process
 
