@@ -62,3 +62,6 @@ export const selectCountry = (state: RootState, countryCode: string) =>
   state.countries.countries.find(
     (country) => country.alpha3Code === countryCode
   );
+
+// export countries data
+export const getCountries = () => countries;

@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router";
-import { selectCountry } from "../slices/countrySlice";
+import { getCountries } from "../slices/countrySlice";
 import { useAppSelector } from "../app/hooks";
 import { selectIsDarkMode } from "../slices/themeSlice";
 
@@ -10,8 +10,18 @@ import "../styles/country-details.scss";
 function CountryDetail() {
   const { countryCode } = useParams<{ countryCode: string }>();
 
-  const country = useAppSelector((state) => selectCountry(state, countryCode!));
+  const country = getCountries().find(
+    (country) => country.alpha3Code === countryCode
+  );
   const isDarkMode = useAppSelector(selectIsDarkMode);
+
+  const getBorderCountries = country?.borders?.map((border) => {
+    return {
+      name: getCountries().find((country) => country.alpha3Code === border)
+        ?.name,
+      code: border,
+    };
+  });
 
   return (
     <>
@@ -26,9 +36,7 @@ function CountryDetail() {
         >
           <Link to="/">
             <button
-              className={`back-btn ${
-                isDarkMode ? "back-btn-dark" : "back-btn-light"
-              }`}
+              className={`back-btn ${isDarkMode ? "btn-dark" : "btn-light"}`}
             >
               <BiArrowBack /> Back
             </button>
@@ -79,8 +87,15 @@ function CountryDetail() {
             <div className="border-countries">
               <p>Border Countries:</p>
               <div className="border-countries-list">
-                {country?.borders?.map((border) => (
-                  <button key={border}>{border}</button>
+                {getBorderCountries?.map((border) => (
+                  <Link to={`/${border.code}`} key={border.code}>
+                    <button
+                      key={border.code}
+                      className={isDarkMode ? "btn-dark" : "btn-light"}
+                    >
+                      {border.name}
+                    </button>
+                  </Link>
                 ))}
               </div>
             </div>
